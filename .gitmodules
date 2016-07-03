@@ -1,0 +1,3 @@
+[submodule "modules/code-challenge"]
+	path = modules/code-challenge
+	url = https://github.com/VivaReal/code-challenge.git
