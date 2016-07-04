@@ -1,5 +1,5 @@
 class Province
-  attr_reader :name, :top, :right, :bottom, :left
+  attr_reader :name, :top, :right, :bottom, :left, :id
 
   def initialize(attributes={})
     @name = attributes[:name].to_s

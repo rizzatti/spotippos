@@ -10,3 +10,10 @@ end
 
 task default: :test
 task spec: :test
+
+task seed: :environment do |t|
+  filename = __dir__ + '/modules/code-challenge/provinces.json'
+  content = JSON.load(File.read(filename))
+  provinces = Province.create content
+  provinces.each { |p| ProvinceRepository.persist p }
+end
