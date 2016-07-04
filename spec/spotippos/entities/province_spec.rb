@@ -2,24 +2,80 @@ require 'spec_helper'
 
 describe Province do
   describe 'default attributes' do
-    let(:subject) { Province.new 'São Paulo', [nil, nil] }
+    let(:subject) { Province.new name: 'São Paulo' }
 
     it 'has a name' do
       assert_equal(subject.name, 'São Paulo')
     end
 
-    it 'has boundaries' do
-      assert_equal(subject.boundaries, [nil, nil])
+    it 'has a top' do
+      assert_equal(subject.top, 0)
+    end
+
+    it 'has a right' do
+      assert_equal(subject.right, 0)
+    end
+
+    it 'has a bottom' do
+      assert_equal(subject.bottom, 0)
+    end
+
+    it 'has a left' do
+      assert_equal(subject.left, 0)
     end
   end
 
   describe 'attribute rules' do
     it 'requires a non empty name' do
-      assert_raises(ArgumentError) { Province.new '', [nil, nil] }
+      assert_raises(ArgumentError) { Province.new name: '' }
     end
 
-    it 'requires a size 2 array of boundaries' do
-      assert_raises(ArgumentError) { Province.new 'teste', nil }
+    it 'does not allow top lower than 0' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', top: -1 }
+    end
+
+    it 'does not allow top greater than 1400' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', top: 1401 }
+    end
+
+    it 'does not allow bottom lower than 0' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', bottom: -1 }
+    end
+
+    it 'does not allow bottom greater than 1400' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', bottom: 1401 }
+    end
+
+    it 'does not allow left lower than 0' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', left: -1 }
+    end
+
+    it 'does not allow left greater than 1000' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', left: 1001 }
+    end
+
+    it 'does not allow right lower than 0' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', right: -1 }
+    end
+
+    it 'does not allow right greater than 1000' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', right: 1001 }
+    end
+  end
+
+  describe 'attributes coercion' do
+    let(:subject) { Province.new name: :teste, top: '20', bottom: 500.5 }
+
+    it 'has a name of teste' do
+      assert_equal(subject.name, 'teste')
+    end
+
+    it 'has a top value of 20' do
+      assert_equal(subject.top, 20)
+    end
+
+    it 'has a bottom value of 500' do
+      assert_equal(subject.bottom, 500)
     end
   end
 
