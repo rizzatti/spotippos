@@ -16,7 +16,7 @@ Hanami::Model.configure do
   #    adapter type: :sql, uri: 'postgres://localhost/spotippos_development'
   #    adapter type: :sql, uri: 'mysql://localhost/spotippos_development'
   #
-  adapter type: :memory, uri: ENV['SPOTIPPOS_DATABASE_URL']
+  adapter type: :sql, uri: ENV['SPOTIPPOS_DATABASE_URL']
 
   ##
   # Database mapping
