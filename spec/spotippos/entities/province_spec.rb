@@ -34,32 +34,32 @@ describe Province do
       assert_raises(ArgumentError) { Province.new name: 'teste', top: -1 }
     end
 
-    it 'does not allow top greater than 1400' do
-      assert_raises(ArgumentError) { Province.new name: 'teste', top: 1401 }
+    it 'does not allow top greater than 1000' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', top: 1001 }
     end
 
     it 'does not allow bottom lower than 0' do
       assert_raises(ArgumentError) { Province.new name: 'teste', bottom: -1 }
     end
 
-    it 'does not allow bottom greater than 1400' do
-      assert_raises(ArgumentError) { Province.new name: 'teste', bottom: 1401 }
+    it 'does not allow bottom greater than 1000' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', bottom: 1001 }
     end
 
     it 'does not allow left lower than 0' do
       assert_raises(ArgumentError) { Province.new name: 'teste', left: -1 }
     end
 
-    it 'does not allow left greater than 1000' do
-      assert_raises(ArgumentError) { Province.new name: 'teste', left: 1001 }
+    it 'does not allow left greater than 1400' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', left: 1401 }
     end
 
     it 'does not allow right lower than 0' do
       assert_raises(ArgumentError) { Province.new name: 'teste', right: -1 }
     end
 
-    it 'does not allow right greater than 1000' do
-      assert_raises(ArgumentError) { Province.new name: 'teste', right: 1001 }
+    it 'does not allow right greater than 1400' do
+      assert_raises(ArgumentError) { Province.new name: 'teste', right: 1401 }
     end
   end
 

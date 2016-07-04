@@ -8,8 +8,8 @@ class Province
     @bottom = attributes.fetch(:bottom) { 0 }.to_i
     @left = attributes.fetch(:left) { 0 }.to_i
     raise ArgumentError if name.empty?
-    [top, bottom].each { |y| raise ArgumentError unless (0..1400).cover? y }
-    [left, right].each { |x| raise ArgumentError unless (0..1000).cover? x }
+    [top, bottom].each { |y| raise ArgumentError unless (0..1000).cover? y }
+    [left, right].each { |x| raise ArgumentError unless (0..1400).cover? x }
   end
 
   def self.create(options)
