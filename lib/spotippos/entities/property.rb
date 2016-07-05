@@ -20,7 +20,10 @@ class Property
 
   def self.create(hsh={})
     hsh = Hanami::Utils::Hash.new(hsh).symbolize!
-    square_meters = hsh.delete :squareMeters
-    new hsh.update(square_meters: square_meters)
+    hsh[:properties].map do |h|
+      h = Hanami::Utils::Hash.new(h).symbolize!
+      square_meters = h.delete :squareMeters
+      new h.update(square_meters: square_meters)
+    end
   end
 end

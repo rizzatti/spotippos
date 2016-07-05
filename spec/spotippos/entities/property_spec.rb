@@ -80,7 +80,9 @@ describe Property do
   end
 
   describe 'create' do
-    let(:subject) { Property.create 'squareMeters' => 150 }
+    let(:subject) do
+      Property.create('properties' => [{ 'squareMeters' => 150 }]).first
+    end
 
     it 'creates with the correct square meters' do
       assert_equal(subject.square_meters, 150)
