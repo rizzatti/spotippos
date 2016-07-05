@@ -14,12 +14,12 @@ module Api::Controllers::Properties
     end
 
     def call(params)
-      return status 400, '' unless params.valid?
+      halt 400, '' unless params.valid?
       property = Property.create params
       PropertyRepository.create property
-      return status 201, ''
+      status 201, ''
     rescue ArgumentError
-      return status 400, ''
+      halt 400, ''
     end
   end
 end

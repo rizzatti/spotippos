@@ -7,9 +7,9 @@ module Api::Controllers::Properties
     end
 
     def call(params)
-      return status 400, '' unless params.valid?
+      halt 400, '' unless params.valid?
       @property = PropertyRepository.find params[:id]
-      return status 400, '' unless @property
+      halt 400, '' unless @property
     end
   end
 end
