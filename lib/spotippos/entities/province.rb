@@ -12,14 +12,15 @@ class Province
     [left, right].each { |x| raise ArgumentError unless (0..1400).cover? x }
   end
 
-  def self.create(options)
-    options.map do |key, value|
-      upper_left = value['boundaries']['upperLeft']
-      bottom_right = value['boundaries']['bottomRight']
-      top = upper_left['y']
-      right = bottom_right['x']
-      bottom = bottom_right['y']
-      left = upper_left['x']
+  def self.create(hsh={})
+    hsh = Hanami::Utils::Hash.new(hsh).symbolize!
+    hsh.map do |key, value|
+      upper_left = value[:boundaries][:upperLeft]
+      bottom_right = value[:boundaries][:bottomRight]
+      top = upper_left[:y]
+      right = bottom_right[:x]
+      bottom = bottom_right[:y]
+      left = upper_left[:x]
       new name: key, top: top, right: right, bottom: bottom, left: left
     end
   end

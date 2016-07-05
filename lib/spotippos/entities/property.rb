@@ -18,9 +18,9 @@ class Property
     raise ArgumentError unless (20..240).cover? square_meters
   end
 
-  def self.create(attributes={})
-    attributes = Hanami::Utils::Hash.new(attributes).symbolize!
-    square_meters = attributes.delete :squareMeters
-    new attributes.update(square_meters: square_meters)
+  def self.create(hsh={})
+    hsh = Hanami::Utils::Hash.new(hsh).symbolize!
+    square_meters = hsh.delete :squareMeters
+    new hsh.update(square_meters: square_meters)
   end
 end
