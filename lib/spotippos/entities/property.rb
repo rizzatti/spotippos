@@ -1,20 +1,21 @@
 class Property
-  attr_reader :id, :title, :price, :description, :x, :y, :beds, :baths
-  attr_reader :square_meters
+  include Hanami::Entity
+  attributes :id, :title, :price, :description, :x, :y, :beds, :baths
+  attributes :square_meters
 
   def initialize(attributes={})
-    @title = attributes[:title].to_s
-    @price = attributes[:price]
-    @description = attributes[:description].to_s
-    @x = attributes.fetch(:x) { 0 }
+    super
+    self.title ||= title.to_s
+    self.description ||= description.to_s
+    self.x ||= 0
     raise ArgumentError unless (0..1400).cover? x
-    @y = attributes.fetch(:y) { 0 }
+    self.y ||= 0
     raise ArgumentError unless (0..1000).cover? y
-    @beds = attributes.fetch(:beds) { 1 }
+    self.beds ||= 1
     raise ArgumentError unless (1..5).cover? beds
-    @baths = attributes.fetch(:baths) { 1 }
+    self.baths ||= 1
     raise ArgumentError unless (1..4).cover? baths
-    @square_meters = attributes.fetch(:square_meters) { 20 }
+    self.square_meters ||= 20
     raise ArgumentError unless (20..240).cover? square_meters
   end
 

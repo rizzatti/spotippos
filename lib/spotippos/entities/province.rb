@@ -1,12 +1,14 @@
 class Province
-  attr_reader :name, :top, :right, :bottom, :left, :id
+  include Hanami::Entity
+  attributes :id, :name, :top, :right, :bottom, :left
 
   def initialize(attributes={})
-    @name = attributes[:name].to_s
-    @top = attributes.fetch(:top) { 0 }.to_i
-    @right = attributes.fetch(:right) { 0 }.to_i
-    @bottom = attributes.fetch(:bottom) { 0 }.to_i
-    @left = attributes.fetch(:left) { 0 }.to_i
+    super
+    self.name = name.to_s
+    self.top = top.to_i
+    self.right = right.to_i
+    self.bottom = bottom.to_i
+    self.left = left.to_i
     raise ArgumentError if name.empty?
     [top, bottom].each { |y| raise ArgumentError unless (0..1000).cover? y }
     [left, right].each { |x| raise ArgumentError unless (0..1400).cover? x }
