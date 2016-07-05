@@ -22,7 +22,7 @@ namespace :seed do
   task properties: :environment do |t|
     filename = __dir__ + '/modules/code-challenge/properties.json'
     content = JSON.load(File.read(filename))
-    properties = Property.create content
+    properties = Property.create_in_batches content
     properties.each { |p| PropertyRepository.persist p }
   end
 end

@@ -79,9 +79,21 @@ describe Property do
     end
   end
 
+  describe 'create in batches' do
+    let(:subject) do
+      Property.create_in_batches({
+        'properties' => [{ 'squareMeters' => 150 }]
+      }).first
+    end
+
+    it 'creates with the correct square meters' do
+      assert_equal(subject.square_meters, 150)
+    end
+  end
+
   describe 'create' do
     let(:subject) do
-      Property.create('properties' => [{ 'squareMeters' => 150 }]).first
+      Property.create({'squareMeters' => 150 })
     end
 
     it 'creates with the correct square meters' do

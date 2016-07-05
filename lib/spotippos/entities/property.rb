@@ -18,12 +18,14 @@ class Property
     raise ArgumentError unless (20..240).cover? square_meters
   end
 
+  def self.create_in_batches(hsh={})
+    hsh = Hanami::Utils::Hash.new(hsh).symbolize!
+    hsh[:properties].map { |e| create e }
+  end
+
   def self.create(hsh={})
     hsh = Hanami::Utils::Hash.new(hsh).symbolize!
-    hsh[:properties].map do |h|
-      h = Hanami::Utils::Hash.new(h).symbolize!
-      square_meters = h.delete :squareMeters
-      new h.update(square_meters: square_meters)
-    end
+    square_meters = hsh.delete :squareMeters
+    new hsh.update(square_meters: square_meters)
   end
 end
