@@ -1,5 +1,6 @@
 class Property
   include Hanami::Entity
+
   attributes :id, :title, :price, :description, :x, :y, :beds, :baths
   attributes :square_meters
 

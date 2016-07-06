@@ -2,7 +2,7 @@ Hanami::Model.migration do
   change do
     create_table :properties do
       primary_key :id
-      column :title, String, null: false
+      column :title, String
       column :description, String
       column :price, Float
       column :x, Integer, null: false
