@@ -1,5 +1,8 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require 'rabl'
+
+Rabl.register!
 
 module Api
   class Application < Hanami::Application
