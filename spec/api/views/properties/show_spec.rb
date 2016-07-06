@@ -9,7 +9,7 @@ describe Api::Views::Properties::Show do
   let(:decorated_property) { PropertyDecorator.new property }
   let(:provinces) { ProvinceRepository.all }
   let(:exposures) { Hash[property: decorated_property, provinces: provinces] }
-  let(:template)  { Hanami::View::Template.new('apps/api/templates/properties/show.rabl') }
+  let(:template)  { Hanami::View::Template.new('apps/api/templates/properties/show.json.rabl') }
   let(:view)      { Api::Views::Properties::Show.new(template, exposures) }
   let(:rendered)  { view.render }
   let(:rendered_json) { JSON.load(rendered) }
