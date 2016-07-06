@@ -8,6 +8,10 @@ gem 'sqlite3'
 gem 'rabl'
 gem 'oj'
 
+group :development, :test do
+  gem 'pry'
+end
+
 group :test do
   gem 'minitest'
   gem 'capybara'
