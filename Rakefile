@@ -16,14 +16,15 @@ namespace :seed do
     filename = __dir__ + '/modules/code-challenge/provinces.json'
     content = JSON.load(File.read(filename))
     provinces = Province.create content
-    provinces.each { |p| ProvinceRepository.persist p }
+    provinces.each {|e| ProvinceRepository.create e }
   end
 
   task properties: :environment do |t|
     filename = __dir__ + '/modules/code-challenge/properties.json'
     content = JSON.load(File.read(filename))
     properties = Property.create_in_batches content
-    properties.each { |p| PropertyRepository.persist p }
+    properties.each {|e| e.id = nil }
+    properties.each {|e| PropertyRepository.create e }
   end
 end
 
