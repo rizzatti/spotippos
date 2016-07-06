@@ -1,7 +1,3 @@
-require 'rabl'
-
-Rabl.register!
-
 Rabl.configure do |config|
   # Commented as these are defaults
   # config.cache_all_output = false
