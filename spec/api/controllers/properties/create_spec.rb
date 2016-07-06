@@ -12,7 +12,7 @@ describe Api::Controllers::Properties::Create do
 
   it 'is successful' do
     response = action.call(good_params)
-    assert_equal(response[0], 201)
+    assert_equal(201, response[0])
   end
 
   it 'adds a new property to DB on successful' do
@@ -23,11 +23,11 @@ describe Api::Controllers::Properties::Create do
 
   it 'it fails with missing params' do
     response = action.call(missing_params)
-    assert_equal(response[0], 400)
+    assert_equal(400, response[0])
   end
 
   it 'it fails with bad params' do
     response = action.call(bad_params)
-    assert_equal(response[0], 400)
+    assert_equal(400, response[0])
   end
 end

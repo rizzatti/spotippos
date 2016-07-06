@@ -15,11 +15,11 @@ describe Api::Views::Properties::Show do
   let(:rendered_json) { JSON.load(rendered) }
 
   it 'exposes #property' do
-    view.property.must_equal exposures.fetch(:property)
+    assert_equal(exposures.fetch(:property), view.property)
   end
 
   it 'exposes #provinces' do
-    assert_equal(view.provinces, exposures.fetch(:provinces))
+    assert_equal(exposures.fetch(:provinces), view.provinces)
   end
 
   describe 'JSON' do

@@ -16,16 +16,16 @@ describe Api::Controllers::Properties::Show do
 
   it 'is successful with an existing id' do
     response = action.call(existing_params)
-    assert_equal(response[0], 200)
+    assert_equal(200, response[0])
   end
 
   it 'fails with non existing id' do
     response = action.call(non_existing_params)
-    response[0].must_equal 400
+    assert_equal(400, response[0])
   end
 
   it 'fails with missing params' do
     response = action.call(missing_params)
-    response[0].must_equal 400
+    assert_equal(400, response[0])
   end
 end

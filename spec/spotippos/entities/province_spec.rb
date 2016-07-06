@@ -5,23 +5,23 @@ describe Province do
     let(:subject) { Province.new name: 'São Paulo' }
 
     it 'has a name' do
-      assert_equal(subject.name, 'São Paulo')
+      assert_equal('São Paulo', subject.name)
     end
 
     it 'has a top' do
-      assert_equal(subject.top, 0)
+      assert_equal(0, subject.top)
     end
 
     it 'has a right' do
-      assert_equal(subject.right, 0)
+      assert_equal(0, subject.right)
     end
 
     it 'has a bottom' do
-      assert_equal(subject.bottom, 0)
+      assert_equal(0, subject.bottom)
     end
 
     it 'has a left' do
-      assert_equal(subject.left, 0)
+      assert_equal(0, subject.left)
     end
   end
 
@@ -67,15 +67,15 @@ describe Province do
     let(:subject) { Province.new name: :teste, top: '20', bottom: 500.5 }
 
     it 'has a name of teste' do
-      assert_equal(subject.name, 'teste')
+      assert_equal('teste', subject.name)
     end
 
     it 'has a top value of 20' do
-      assert_equal(subject.top, 20)
+      assert_equal(20, subject.top)
     end
 
     it 'has a bottom value of 500' do
-      assert_equal(subject.bottom, 500)
+      assert_equal(500, subject.bottom)
     end
   end
 
@@ -96,23 +96,23 @@ describe Province do
     let(:subject) { Province.create(options).first }
 
     it 'creates the correct name' do
-      assert_equal(subject.name, 'São Paulo')
+      assert_equal('São Paulo', subject.name)
     end
 
     it 'creates the correct left coordinate' do
-      assert_equal(subject.left, 0)
+      assert_equal(0, subject.left)
     end
 
     it 'creates the correct top coordinate' do
-      assert_equal(subject.top, 1000)
+      assert_equal(1000, subject.top)
     end
 
     it 'creates the correct right coordinate' do
-      assert_equal(subject.right, 600)
+      assert_equal(600, subject.right)
     end
 
     it 'creates the correct bottom coordinate' do
-      assert_equal(subject.bottom, 500)
+      assert_equal(500, subject.bottom)
     end
   end
 end

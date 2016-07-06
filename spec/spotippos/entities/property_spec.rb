@@ -5,35 +5,35 @@ describe Property do
     let(:subject) { Property.new }
 
     it 'has an empty title' do
-      assert_equal(subject.title, '')
+      assert_equal('', subject.title)
     end
 
     it 'has a null price' do
-      assert_equal(subject.price, nil)
+      assert_equal(nil, subject.price)
     end
 
     it 'has an empty description' do
-      assert_equal(subject.description, '')
+      assert_equal('', subject.description)
     end
 
     it 'has a x coordinate with value 0' do
-      assert_equal(subject.x, 0)
+      assert_equal(0, subject.x)
     end
 
     it 'has a y coordinate with value 0' do
-      assert_equal(subject.y, 0)
+      assert_equal(0, subject.y)
     end
 
     it 'has 1 beds' do
-      assert_equal(subject.beds, 1)
+      assert_equal(1, subject.beds)
     end
 
     it 'has 1 baths' do
-      assert_equal(subject.baths, 1)
+      assert_equal(1, subject.baths)
     end
 
     it 'has a 20 square meters' do
-      assert_equal(subject.square_meters, 20)
+      assert_equal(20, subject.square_meters)
     end
   end
 
@@ -87,7 +87,7 @@ describe Property do
     end
 
     it 'creates with the correct square meters' do
-      assert_equal(subject.square_meters, 150)
+      assert_equal(150, subject.square_meters)
     end
   end
 
@@ -97,7 +97,7 @@ describe Property do
     end
 
     it 'creates with the correct square meters' do
-      assert_equal(subject.square_meters, 150)
+      assert_equal(150, subject.square_meters)
     end
   end
 end
