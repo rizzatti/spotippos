@@ -10,7 +10,7 @@ module Api::Controllers::Properties
 
     def call(params)
       halt 400, '' unless params.valid?
-      @property = PropertyRepository.find params[:id]
+      @property = PropertyDecorator.new(PropertyRepository.find params[:id])
       @provinces = ProvinceRepository.all
       halt 400, '' unless @property
     end
