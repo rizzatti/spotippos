@@ -3,8 +3,8 @@ class PropertyRepository
 
   def self.find_within_coordinates(top, right, bottom, left)
     query do
-      where(['x <= ? and x >= ? and y >= ? and y <= ?',
-             top, bottom, left, right])
+      where(['x >= ? and x <= ? and y <= ? and y >= ?',
+             left, right, top, bottom])
     end.all
   end
 end

@@ -6,7 +6,7 @@ describe PropertyRepository do
     p1 = Property.new title: 'Property 1', price: 10, beds: 1, baths: 1,
       square_meters: 50, x: 10, y: 10
     p2 = Property.new title: 'Property 2', price: 10, beds: 1, baths: 1,
-      square_meters: 50, x: 20, y: 20
+      square_meters: 50, x: 20, y: 10
     PropertyRepository.create p1
     PropertyRepository.create p2
   end
@@ -18,12 +18,12 @@ describe PropertyRepository do
     end
 
     it 'finds 1 properties accordingly' do
-      properties = PropertyRepository.find_within_coordinates(15, 15, 0, 0)
+      properties = PropertyRepository.find_within_coordinates(30, 15, 0, 0)
       assert_equal(1, properties.size)
     end
 
     it 'finds 0 properties accordingly' do
-      properties = PropertyRepository.find_within_coordinates(5, 5, 0, 0)
+      properties = PropertyRepository.find_within_coordinates(30, 5, 0, 0)
       assert_equal(0, properties.size)
     end
   end
